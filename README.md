@@ -7,6 +7,13 @@
 composer require thefunpower/think-mongodb
 ~~~
 
+或在`composer.json`添加 
+
+~~~
+"thefunpower/think-mongodb":"^2"
+~~~
+
+
 ### 激活数据库连接
 
 ~~~
