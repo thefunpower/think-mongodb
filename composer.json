@@ -1,0 +1,21 @@
+{
+    "name": "thefunpower/think-mongodb",
+    "type": "library",
+    "description": "mongodb",
+    "keywords": ["php"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ken.sun",
+            "email": "sunkangchina@163.com" 
+        }
+    ],
+    "require": { 
+        "topthink/think-orm": "^3.0"
+    }, 
+    "autoload": { 
+        "files": [  
+            "./helper.php"
+        ]
+    }
+}
