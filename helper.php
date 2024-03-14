@@ -1,4 +1,5 @@
 <?php
+use think\facade\Db;
 /**
  * mongodb操作
  */
