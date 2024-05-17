@@ -283,6 +283,7 @@ function db_update($table, $update_data, $where, $use_action = true)
     $ref = ['data' => $update_data,'where' => $where];
     if($use_action) {
         do_action("db.update.before.".$table, $ref);
+        $update_data = $ref['data'];
     }
     $update_data['updated_at'] = now();
     Db::connect($connection)->name($table)->where($where)->update($update_data);
