@@ -337,16 +337,27 @@ function _db_get_when_array($list, $call)
         if($k == 'OR') {
             $where_or_con = [];
             foreach($v as $k1 => $v1) {
-                if(strpos($k1, '[~]') !== false) {
-                    $k1 = substr($k1, 0, strpos($k1, '['));
-                    $where_or_con[] = [
-                        $k1,'like',$v1
-                    ];
-                } else {
-                    $where_or_con[$k1] = $v1;
-                }
+                if(!is_numeric($k1)){
+                    if(strpos($k1, '[~]') !== false) {
+                        $k1 = substr($k1, 0, strpos($k1, '['));
+                        $where_or_con[] = [
+                            $k1,'like',$v1
+                        ];
+                    } else {
+                        $where_or_con[$k1] = $v1;
+                    }
+                } 
             }
-            $list = $list->whereOr($where_or_con);
+            if($where_or_con){
+                $list = $list->whereOr($where_or_con);
+            }else{
+                $new_where = [];
+                foreach ($v as $v1) {
+                    $list = $list->whereOr(function ($query) use($v1) { 
+                        $query->where($v1);
+                    });
+                } 
+            }
             unset($call[$k]);
             continue;
         }

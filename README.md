@@ -142,6 +142,20 @@ $d['list'] = db_get("hardware",[
 ]);
 ~~~
 
+### OR查寻
+
+~~~
+$where['OR'] = [
+    ['user_id'=>$user_id,'to_user_id'=>$to_user_id],
+    ['user_id'=>$to_user_id,'to_user_id'=>$user_id],
+];
+~~~
+
+~~~
+$where['OR'] = [
+    'user_id'=>$user_id,'to_user_id'=>$to_user_id,
+];
+~~~
 
 
 
