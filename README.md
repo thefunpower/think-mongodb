@@ -17,7 +17,7 @@ composer require thefunpower/think-mongodb
 ### 激活数据库连接
 
 ~~~
-active_db($value = 'mongo')
+db_active($value = 'mongo')
 ~~~
 
 ### 添加记录
@@ -142,20 +142,6 @@ $d['list'] = db_get("hardware",[
 ]);
 ~~~
 
-### OR查寻
-
-~~~
-$where['OR'] = [
-    ['user_id'=>$user_id,'to_user_id'=>$to_user_id],
-    ['user_id'=>$to_user_id,'to_user_id'=>$user_id],
-];
-~~~
-
-~~~
-$where['OR'] = [
-    'user_id'=>$user_id,'to_user_id'=>$to_user_id,
-];
-~~~
 
 
 
