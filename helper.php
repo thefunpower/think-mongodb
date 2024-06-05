@@ -5,6 +5,7 @@ define('thefunpower_mongo_dir',__DIR__);
 */
 function get_env($key)
 {
+    $key = strtolower($key);
     return env($key);
 }
 /**
@@ -12,6 +13,7 @@ function get_env($key)
 */
 function set_env($key, $val)
 {
+    $key = strtolower($key); 
     return think\facade\Env::set($key, $val);
 } 
 /**
